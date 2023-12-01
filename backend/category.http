@@ -1,0 +1,15 @@
+
+###
+POST http://localhost:5000/category
+Content-Type: application/json
+
+{
+    "category_name": "Milk 2",
+    "category_image": "Milk is good for the sol",
+    "category_description": "Milk is good for the sol"
+}
+
+###
+GET http://localhost:5000/category
+Content-Type: application/json
+token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNzYyNTNjZTQtMTI4My00NjVmLTlhOTUtZGU5NGYxMTRlMzIzIiwibmFtZSI6IlJvYmluc29uIE5nZWN1IiwiZW1haWwiOiJkZXZuZ2VjdUBnbWFpbC5jb20iLCJyb2xlIjowLCJ3ZWxjb21lZCI6MCwiYWN0aXZlIjoxLCJpYXQiOjE3MDExNTg3OTB9.h2q_lIx3hVEvPBpTZYdzhSSdRIp0meppK8gm3xCC_9w

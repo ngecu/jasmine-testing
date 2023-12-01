@@ -1,0 +1,55 @@
+<body >
+    <app-navbar></app-navbar>
+    
+    <section>
+    
+    <div class="container m-2 w-[80vw] block mx-auto justify-center items-center ">
+
+        
+        <div class="flex">
+            <app-sidebar class="flex-shrink-0"></app-sidebar>
+        
+            <main class="mx-4 flex-1">
+                <div class="mx-4 flex-1">
+                    <div class="flex justify-between items-center">
+                      <button routerLink="/my-account/categories" class="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 focus:outline-none focus:ring focus:border-blue-400">
+                        Back
+                      </button>
+                      <h1 class="text-2xl font-bold">ADD CATEGORY</h1>
+                    </div>
+                  
+                    <form [formGroup]="categoryForm" (ngSubmit)="onSubmit()">
+                      <div class="mb-4">
+                        <label for="category_name" class="block text-sm font-medium text-gray-600">Category Name</label>
+                        <input type="text" id="category_name" formControlName="category_name" class="mt-1 p-2 w-full border rounded-md" />
+                      </div>
+                  
+                      <div class="mb-4">
+                        <label for="category_image" class="block text-sm font-medium text-gray-600">Category Image</label>
+                        <input type="text" id="category_image" formControlName="category_image" class="mt-1 p-2 w-full border rounded-md" />
+                      </div>
+                  
+                      <div class="mb-4">
+                        <label for="category_description" class="block text-sm font-medium text-gray-600">Category Description</label>
+                        <input type="text" id="category_description" formControlName="category_description" class="mt-1 p-2 w-full border rounded-md" />
+                      </div>
+                  
+                      <div class="mt-6">
+                        <button type="submit" class="w-full p-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 focus:outline-none focus:ring focus:border-blue-400">
+                          Add Category
+                        </button>
+                      </div>
+                    </form>
+                  </div>
+                  
+            </main>
+            
+            
+        </div>
+        
+
+</div>
+
+</section>
+
+</body>

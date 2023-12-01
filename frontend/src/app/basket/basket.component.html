@@ -1,0 +1,101 @@
+
+<body >
+    <app-navbar></app-navbar>
+
+    <section>
+
+        <div class="container m-2 w-[60vw] block mx-auto justify-center items-center m-4">
+
+            
+<ol class="flex items-center w-full text-sm font-medium text-center text-gray-500 dark:text-gray-400 sm:text-base">
+    <li class="flex md:w-full items-center text-blue-600 dark:text-blue-500 sm:after:content-[''] after:w-full after:h-1 after:border-b after:border-gray-200 after:border-1 after:hidden sm:after:inline-block after:mx-6 xl:after:mx-10 dark:after:border-gray-700">
+        <span class="flex items-center after:content-['/'] sm:after:hidden after:mx-2 after:text-gray-200 dark:after:text-gray-500">
+            <svg class="w-3.5 h-3.5 sm:w-4 sm:h-4 me-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z"/>
+            </svg>
+             Basket <span class="hidden sm:inline-flex sm:ms-2"></span>
+        </span>
+    </li>
+    <li class="flex md:w-full items-center after:content-[''] after:w-full after:h-1 after:border-b after:border-gray-200 after:border-1 after:hidden sm:after:inline-block after:mx-6 xl:after:mx-10 dark:after:border-gray-700">
+        <span class="flex items-center after:content-['/'] sm:after:hidden after:mx-2 after:text-gray-200 dark:after:text-gray-500">
+            <span class="me-2">2</span>
+            Details 
+        </span>
+    </li>
+    <li class="flex items-center">
+        <span class="me-2">3</span>
+        Confirmation
+    </li>
+</ol>
+</div>
+
+</section>
+
+<div class="container m-2 w-[80vw] block mx-auto justify-center items-center ">
+<section class="flex ">
+    
+    <div class="flex-1">
+
+        <table class="min-w-full bg-white border border-gray-300 divide-y divide-gray-300">
+    <thead>
+      <tr>
+        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Name</th>
+        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Price</th>
+        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Image</th>
+        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Quantity</th>
+        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"></th>
+      
+    </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of cartItems">
+        <td class="px-6 py-4 whitespace-nowrap">{{ item.name }}</td>
+        <td class="px-6 py-4 whitespace-nowrap">{{ item.price }}</td>
+        <td class="px-6 py-4 whitespace-nowrap">
+          <img [src]="item.image" alt="Product Image" class="w-8 h-8">
+        </td>
+        <td class="px-6 py-4 whitespace-nowrap">{{ item.qty }}</td>
+        <td class="px-6 py-4 whitespace-nowrap">
+
+          <button (click)="removeFromCart(item)" class="bg-red-500 text-white px-4 py-2 rounded-md hover:bg-red-600 focus:outline-none focus:ring focus:border-red-400">
+            Remove
+          </button>
+        </td>
+          <td class="px-6 py-4 whitespace-nowrap">
+            <button (click)="addToCart(item)" class="bg-green-500 text-white px-4 py-2 rounded-md hover:bg-red-600 focus:outline-none focus:ring focus:border-red-400">
+              add
+            </button>
+          </td>
+          
+      </tr>
+    </tbody>
+  </table>
+
+     
+    </div>
+
+    <div class="flex-6 ">
+        <div class="bg-white border rounded p-4 shadow-md">
+            <h2 class="text-xl font-bold">TOTAL({{total_items}}) ITEMS</h2>
+            <hr/>
+            <p>Ksh.{{subtotal}}</p>
+            <hr/>
+            <button
+            class="W-100 bg-blue-500 text-white py-4 px-6 rounded-lg hover:bg-blue-400 focus:outline-none focus:ring focus:border-blue-300"
+            [routerLink]="['/checkout']"
+            [disabled]="button_disabled"
+          >
+            PROCEED
+          </button>
+          
+
+            </div>
+      </div>
+
+  </section>
+</div>
+
+
+<app-footer></app-footer>
+
+</body>

@@ -1,0 +1,21 @@
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+
+import { EditaccountComponent } from './editaccount.component';
+
+describe('EditaccountComponent', () => {
+  let component: EditaccountComponent;
+  let fixture: ComponentFixture<EditaccountComponent>;
+
+  beforeEach(() => {
+    TestBed.configureTestingModule({
+      declarations: [EditaccountComponent]
+    });
+    fixture = TestBed.createComponent(EditaccountComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
+
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
+});

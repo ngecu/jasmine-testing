@@ -1,0 +1,82 @@
+<body >
+    <app-navbar></app-navbar>
+    
+    <section>
+    
+    <div class="container m-2 w-[80vw] block mx-auto justify-center items-center ">
+
+        
+        <div class="flex">
+            <app-sidebar class="flex-shrink-0"></app-sidebar>
+        
+            <main class="mx-4 flex-1">
+                <div class="mx-4 flex-1">
+                    <div class="flex justify-between items-center">
+                      <button routerLink="/my-account/products" class="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 focus:outline-none focus:ring focus:border-blue-400">
+                        Back
+                      </button>
+                      <h1 class="text-2xl font-bold">ADD PRODUCT</h1>
+                    </div>
+                  
+                    <form [formGroup]="productForm" (ngSubmit)="onSubmit()">
+
+                        <div class="mb-4">
+                            <label for="name" class="block text-sm font-medium text-gray-600">Product Name</label>
+                            <input type="text" id="name" formControlName="name" class="mt-1 p-2 w-full border rounded-md">
+                          </div>
+                        
+                          <div class="mb-4">
+                            <label for="price" class="block text-sm font-medium text-gray-600">Price</label>
+                            <input type="number" id="price" formControlName="price" class="mt-1 p-2 w-full border rounded-md">
+                          </div>
+                        
+                          <div class="mb-4">
+                            <label for="discount" class="block text-sm font-medium text-gray-600">Discount</label>
+                            <input type="number" id="discount" formControlName="discount" class="mt-1 p-2 w-full border rounded-md">
+                          </div>
+                        
+                          <div class="mb-4">
+                            <label for="discount" class="block text-sm font-medium text-gray-600">count In Stock</label>
+                            <input type="number" id="countInStock" formControlName="countInStock" class="mt-1 p-2 w-full border rounded-md">
+                          </div>
+
+                          <div class="mb-4">
+                            <label for="image" class="block text-sm font-medium text-gray-600">Image URL</label>
+                            <input type="text" id="image" formControlName="image" class="mt-1 p-2 w-full border rounded-md">
+                          </div>
+
+                          <div class="mb-4">
+                            <label for="description" class="block text-sm font-medium text-gray-600">Description</label>
+                            <textarea id="description" formControlName="description" class="mt-1 p-2 w-full border rounded-md"></textarea>
+                          </div>
+
+                        <!-- Other form controls -->
+                      
+                        <div class="mb-4">
+                          <label for="category_id" class="block text-sm font-medium text-gray-600">Category</label>
+                          <select id="category_id" formControlName="category_id" class="mt-1 p-2 w-full border rounded-md">
+                            <option value="">Select Category</option>
+                            <option *ngFor="let category of categories" [value]="category.category_id">{{ category.category_name }}</option>
+                          </select>
+                        </div>
+                      
+                        <div class="mt-6">
+                          <button type="submit" class="w-full p-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 focus:outline-none focus:ring focus:border-blue-400">
+                            Submit
+                          </button>
+                        </div>
+                      </form>
+                      
+                  </div>
+                  
+            </main>
+            
+            
+        </div>
+        
+
+</div>
+
+</section>
+
+</body>

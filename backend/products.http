@@ -1,0 +1,37 @@
+
+###
+POST http://localhost:5000/product
+Content-Type: application/json
+token:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiZGU4MWUwMzktZWIwNy00NWViLWIwYWMtNTgwMjJhOTYzOTkyIiwibmFtZSI6IlJvYmluc29uIE5nZWN1IiwiZW1haWwiOiJkZXZuZ2VjdUBnbWFpbC5jb20iLCJyb2xlIjowLCJ3ZWxjb21lZCI6MCwiYWN0aXZlIjoxLCJpYXQiOjE3MDEwNzkzMjB9.Mi0kfHWXtR8fYpsJ4Rc27cam84yImFtrvYMqNDunzf8
+
+{
+    "name": "Sample name2",
+    "price": 200,
+    "discount": 3,
+    "tags":"food,fastfood",
+    "image": "/images/sample2.jpg",
+    "category_id": "e7157789-4b30-4a64-a1d7-0e1137423883",
+    "countInStock": 10,
+    "numReviews": 0,
+    "description": "Sample description"
+}
+
+###
+GET http://localhost:5000/product
+Content-Type: application/json
+
+
+###
+GET http://localhost:5000/product/cbefbcef-906f-4e4b-ba9e-f2f6177068e4
+Content-Type: application/json
+
+###
+DELETE http://localhost:5000/product/0e965010-9b41-4820-8b2b-0cdfffcc79c9
+Content-Type: application/json
+token:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiZGU4MWUwMzktZWIwNy00NWViLWIwYWMtNTgwMjJhOTYzOTkyIiwibmFtZSI6IlJvYmluc29uIE5nZWN1IiwiZW1haWwiOiJkZXZuZ2VjdUBnbWFpbC5jb20iLCJyb2xlIjowLCJ3ZWxjb21lZCI6MCwiYWN0aXZlIjoxLCJpYXQiOjE3MDEwNzkzMjB9.Mi0kfHWXtR8fYpsJ4Rc27cam84yImFtrvYMqNDunzf8
+
+
+###
+GET http://localhost:5000/product/category/728ec290-4058-4dd6-8d80-173307fb0a72
+Content-Type: application/json
+

@@ -1,0 +1,60 @@
+<body class="bg-dark">
+    <app-navbar></app-navbar>
+
+    <section style="background-image: url('https://image.kilimall.com/kenya/shop/activity/x9ya31ad2Eqv3wcZeReJK1GPhDI7kKxomEHScfK8.gif');">
+
+        <div class="container m-2 w-[60vw] block mx-auto justify-center items-center">
+            <h1 style="color: white;">{{category}}</h1>
+            <div class="flex flex-wrap">
+                
+                <div *ngFor="let product of products; let i = index" class="flex-shrink-0 w-64 bg-white mr-4 rounded-lg shadow-md m-2 ">
+                  <a [routerLink]="['/product', product.product_id]">
+                  <img src="{{product.image}}" alt="Product 1" class="w-full h-40 object-cover mb-4 rounded-md">
+                </a>
+                    <div class="p-2">
+                        <h3 class="text-lg font-bold mb-2">{{product.name}}</h3>
+                        <p class="text-gray-700">{{product.description.slice(0,30)}}...</p>
+                        <div class="mt-2 flex items-center">
+                          <span class="text-green-500 font-bold mr-2">Ksh {{product.price}}</span>
+                          <span class="text-gray-500 line-through">Ksh {{ product.price + (product.price * (product.discount / 100)) }}</span>
+                        </div>
+                        <!-- <div class="flex items-center mt-2">
+                          <div class="text-yellow-500">
+                            ★★★★☆ <!-- Replace with your star rating logic
+                          </div>
+                          <span class="text-gray-500 ml-2">(120 reviews)</span>
+                        </div> -->
+                        <button *ngIf="product.countInStock > 0"
+                          (click)="addToCart(product)"
+                          class="w-full bg-green-500 text-white py-2 px-4 rounded-md hover:bg-green-600 focus:outline-none focus:ring focus:border-green-400">
+                      Add to Cart
+                  </button>
+                  
+                  <!-- If product is out of stock, show a disabled Out of Stock button -->
+                  <button *ngIf="product.countInStock === 0"
+                          class="w-full bg-red-500 text-white py-2 px-4 rounded-md cursor-not-allowed opacity-50"
+                          [disabled]="true">
+                      Out of Stock
+                  </button>
+                      
+
+                     
+                    </div>
+                
+                 
+                </div>
+            
+
+
+                
+
+
+              </div>
+              
+          </div>
+
+        </section>
+
+    <app-footer></app-footer>
+
+</body>

@@ -1,0 +1,14 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const express_1 = require("express");
+const verifyToken_1 = require("../middlewares/verifyToken");
+const productsController_js_1 = require("../controllers/productsController.js");
+const product_router = (0, express_1.Router)();
+product_router.post('/', verifyToken_1.verifyToken, productsController_js_1.createProduct);
+product_router.get('/', productsController_js_1.getProducts);
+product_router.post('/:id/reviews', verifyToken_1.verifyToken, productsController_js_1.createProductReview);
+product_router.get('/:product_id', productsController_js_1.getProductById);
+product_router.delete("/:product_id", verifyToken_1.verifyToken, productsController_js_1.deleteProduct);
+product_router.put("/:product_id", verifyToken_1.verifyToken, productsController_js_1.updateProduct);
+product_router.get('/category/:category_id', productsController_js_1.getProductsByCategory);
+exports.default = product_router;

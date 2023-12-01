@@ -1,0 +1,25 @@
+<body >
+    <app-navbar></app-navbar>
+    
+    <section>
+    
+    <div class="container m-2 w-[80vw] block mx-auto justify-center items-center ">
+
+        
+        <div class="flex">
+            <app-sidebar class="flex-shrink-0"></app-sidebar>
+        
+            <main class="mx-4 flex-1">
+                <h1 class="text-2xl font-bold">DASHBOARD</h1>
+                <p>
+                    Hello {{name}} (not {{name}} <button  (click)="Logout()"> Log out </button> ) From your account dashboard you can view your recent orders, manage your shipping and billing addresses, and edit your password and account details.
+                </p>
+            </main>
+        </div>
+        
+
+</div>
+
+</section>
+
+</body>

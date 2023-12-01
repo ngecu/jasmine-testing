@@ -1,0 +1,102 @@
+<body class="bg-dark">
+    <app-navbar></app-navbar>
+
+    <section> 
+
+
+        <div class="container m-2 w-[60vw] block mx-auto justify-center items-center m-4">
+
+            
+            <ol class="flex items-center w-full text-sm font-medium text-center text-gray-500 dark:text-gray-400 sm:text-base">
+                <li class="flex md:w-full items-center  dark:text-blue-500 sm:after:content-[''] after:w-full after:h-1 after:border-b after:border-gray-200 after:border-1 after:hidden sm:after:inline-block after:mx-6 xl:after:mx-10 dark:after:border-gray-700">
+                    <span class="flex items-center after:content-['/'] sm:after:hidden after:mx-2 after:text-gray-200 dark:after:text-gray-500">
+                      <span class="me-2">1</span>
+                       
+                         Basket <span class="hidden sm:inline-flex sm:ms-2"></span>
+                    </span>
+                </li>
+                <li class="flex md:w-full items-center text-blue-600 after:content-[''] after:w-full after:h-1 after:border-b after:border-gray-200 after:border-1 after:hidden sm:after:inline-block after:mx-6 xl:after:mx-10 dark:after:border-gray-700">
+                    <span class="flex items-center after:content-['/'] sm:after:hidden after:mx-2 after:text-gray-200 dark:after:text-gray-500">
+
+                        <svg class="w-3.5 h-3.5 sm:w-4 sm:h-4 me-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                          <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z"/>
+                      </svg>
+
+                        Details 
+                    </span>
+                </li>
+                <li class="flex items-center">
+                    <span class="me-2">3</span>
+                    Confirmation
+                </li>
+            </ol>
+
+            <div class="flex">
+                  <div class="mx-4 flex-1">
+                    <form (ngSubmit)="submitForm()"  [formGroup]="userForm">
+                        <div class="mb-4">
+                          <label for="first_name" class="block text-sm font-medium text-gray-600">First Name</label>
+                          <input type="text" id="first_name" name="first_name" formControlName="first_name"  required class="mt-1 p-2 w-full border rounded-md">
+                        </div>
+                      
+                        <div class="mb-4">
+                          <label for="last_name" class="block text-sm font-medium text-gray-600">Last Name</label>
+                          <input type="text" id="last_name" name="last_name" formControlName="last_name" required class="mt-1 p-2 w-full border rounded-md">
+                        </div>
+                      
+                        <div class="mb-4">
+                          <label for="phone_number" class="block text-sm font-medium text-gray-600">Phone Number</label>
+                          <input type="tel" id="phone_number" name="phone_number" formControlName="phone_number" required class="mt-1 p-2 w-full border rounded-md">
+                        </div>
+                      
+                        <div class="mb-4">
+                          <label for="email_address" class="block text-sm font-medium text-gray-600">Email Address</label>
+                          <input type="email" id="email_address" name="email_address"  formControlName="email_address" class="mt-1 p-2 w-full border rounded-md">
+                        </div>
+                      
+                        By placing an order I confirm that I'm 18 years or older and accept the terms and conditions.
+
+                        <div class="mt-6">
+                          <button type="submit" [disabled]="userForm.invalid" class="w-full p-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 focus:outline-none focus:ring focus:border-blue-400">
+                            Proceed To Payment
+                          </button>
+                        </div>
+                      </form>
+                  </div>
+                <div class="mx-4 flex-1">
+                    <div class="map-container">
+                        <iframe 
+    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.2467541252675!2d36.94491121474859!3d-0.4273660994966402!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182b6a4a9c86bdfb%3A0x57b8b9d79b256b62!2sNyeri%2C%20Kenya!5e0!3m2!1sen!2sin!4v1673629212535!5m2!1sen!2sin"
+    width="100%"
+    height="100%"
+    style="border:0;"
+    allowfullscreen=""
+    loading="lazy"
+    referrerpolicy="no-referrer-when-downgrade">
+</iframe>
+
+                    
+           </div>
+                </div>
+              
+   </div>
+            </div>
+          
+<!--       
+            <div class="container m-2 w-[60vw] block mx-auto justify-center items-center m-4">
+                Please open it in full screen mode <br>
+                your current location is:- <br>
+                lat:-{{lat}}<br>
+                lng-:{{lng}}
+            </div>
+      -->
+
+        </section>
+
+        <div *ngIf="!lat || !lng" class="container m-2 w-[60vw] block mx-auto text-red-500">
+    Please allow access to your device's current location.
+</div>
+
+    <app-footer></app-footer>
+
+</body>

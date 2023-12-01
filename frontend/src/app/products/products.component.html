@@ -1,0 +1,69 @@
+<body >
+    <app-navbar></app-navbar>
+
+
+    
+    <section>
+    
+    <div class="container m-2 w-[80vw] block mx-auto justify-center items-center ">
+
+        
+        <div class="flex">
+            <app-sidebar class="flex-shrink-0"></app-sidebar>
+        
+            <main class="mx-4 flex-1">
+                <div class="flex justify-between items-center">
+                    <h1 class="text-2xl font-bold">PRODUCTS</h1>
+                
+                    <button routerLink="/add_product" class="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 focus:outline-none focus:ring focus:border-blue-400">
+                        ADD
+                    </button>
+                </div>
+
+                <table class="min-w-full bg-white border border-gray-300 divide-y divide-gray-300">
+                    <thead>
+                        <tr>
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"></th>
+
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Name</th>
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Price</th>
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Count In Stock</th>
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"></th>
+                            
+                        </tr>
+                    </thead>
+                    <tbody>
+                      
+                        <tr *ngFor="let product of products; let i = index" class="hover:bg-gray-100">
+                            <td class="px-6 py-4 whitespace-nowrap">
+                                <img [src]="product.image" alt="Category Image" class="w-8 h-8">
+                              </td>                           
+                               <td class="py-2 px-4 border-b">{{ product.name }}</td>
+                               <td class="py-2 px-4 border-b">Ksh {{ product.price }}</td>
+                               <td class="py-2 px-4 border-b">{{ product.countInStock }}</td>
+                               <td class="py-2 px-4 border-b">
+                                <button (click)="deleteProduct(product)" class="bg-red-500 text-white px-2 py-1 mr-2 rounded-md hover:bg-red-600 focus:outline-none focus:ring focus:border-red-400">
+                                  Delete
+                                </button>
+                                <button [routerLink]="['/my-account/edit_product', product.product_id]" class="bg-blue-500 text-white px-2 py-1 rounded-md hover:bg-blue-600 focus:outline-none focus:ring focus:border-blue-400">
+                                    Edit
+                                  </button>
+                              </td>
+                              </tr>
+                              
+
+
+                        <!-- Replace with more rows as needed -->
+                    </tbody>
+                </table>
+            </main>
+            
+            
+        </div>
+        
+
+</div>
+
+</section>
+
+</body>

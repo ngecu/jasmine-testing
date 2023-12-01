@@ -1,0 +1,62 @@
+<body >
+    <app-navbar></app-navbar>
+    
+    <section>
+    
+    <div class="container m-2 w-[80vw] block mx-auto justify-center items-center ">
+
+        
+        <div class="flex">
+            <app-sidebar class="flex-shrink-0"></app-sidebar>
+        
+            <img [src]="image" alt="">
+            <main class="mx-4 flex-1">
+                <div *ngIf="error" class="flex justify-center p-4 bg-red-200 text-red-500 rounded mb-2">{{ errorMessage }}</div>
+              
+                <form class="max-w-md mx-auto mt-8" (ngSubmit)="onSubmit()">
+                  <div class="mb-4">
+                    <label for="name" class="block text-sm font-medium text-gray-600">Product Name</label>
+                    <input type="text" id="name" name="name" [(ngModel)]="name" autocomplete="name" class="mt-1 p-2 w-full border rounded-md">
+                  </div>
+              
+                  <div class="mb-4">
+                    <label for="price" class="block text-sm font-medium text-gray-600">Price</label>
+                    <input type="number" id="price" name="price" [(ngModel)]="price" class="mt-1 p-2 w-full border rounded-md">
+                  </div>
+              
+                  <div class="mb-4">
+                    <label for="discount" class="block text-sm font-medium text-gray-600">Discount</label>
+                    <input type="number" id="discount" name="discount" [(ngModel)]="discount" class="mt-1 p-2 w-full border rounded-md">
+                  </div>
+
+                  <div class="mb-4">
+                    <label for="discount" class="block text-sm font-medium text-gray-600">Count In Stock</label>
+                    <input type="number" id="discount" name="countInStock" [(ngModel)]="countInStock" class="mt-1 p-2 w-full border rounded-md">
+                  </div>
+
+              
+                  <div class="mb-4">
+                    <label for="image" class="block text-sm font-medium text-gray-600">Image URL</label>
+                    <input type="text" id="image" name="image" [(ngModel)]="image" class="mt-1 p-2 w-full border rounded-md">
+                  </div>
+              
+                  <!-- Add similar fields for other product details -->
+              
+                  <div class="mt-6">
+                    <button type="submit" class="w-full p-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 focus:outline-none focus:ring focus:border-blue-400">
+                      Update Product
+                    </button>
+                  </div>
+                </form>
+              </main>
+
+              
+            
+        </div>
+        
+
+</div>
+
+</section>
+
+</body>

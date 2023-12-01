@@ -1,0 +1,56 @@
+<body >
+    <app-navbar></app-navbar>
+    
+    <section>
+    
+    <div class="container m-2 w-[80vw] block mx-auto justify-center items-center ">
+
+        
+        <div class="flex">
+            <app-sidebar class="flex-shrink-0"></app-sidebar>
+        
+            <main class="mx-4 flex-1">
+                <div class="flex justify-between items-center">
+                    <h1 class="text-2xl font-bold">CATEGORIES</h1>
+                
+                    <button routerLink="/add_category" class="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 focus:outline-none focus:ring focus:border-blue-400">
+                        ADD
+                    </button>
+                </div>
+                
+
+                <table class="min-w-full bg-white border border-gray-300 divide-y divide-gray-300">
+                    <thead>
+                        <tr>
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">ID</th>
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">CATEGORY</th>
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"></th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Example row, replace with your data -->
+                       
+                            <tr *ngFor="let category of categories">
+                              <td class="px-6 py-4 whitespace-nowrap">{{ category.category_id }}</td>
+                              <td class="px-6 py-4 whitespace-nowrap">{{ category.category_name }}</td>
+                              <td class="px-6 py-4 whitespace-nowrap">
+                                <img [src]="category.category_image" alt="Category Image" class="w-8 h-8">
+                              </td>
+                            </tr>
+                       
+                          
+                        <!-- Replace with more rows as needed -->
+                    </tbody>
+                </table>
+            </main>
+            
+            
+        </div>
+        
+
+</div>
+
+</section>
+
+</body>

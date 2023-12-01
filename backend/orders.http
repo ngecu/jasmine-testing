@@ -1,0 +1,38 @@
+POST http://localhost:5000/order
+Content-Type: application/json
+
+{
+    "product_id": "de9cbef3-5b0f-4a75-a128-b82b786b8119",
+    "paymentMethod": "YourPaymentMethodHere",
+    "itemsPrice": 100.00,
+    "taxPrice": 10.00,
+    "shippingPrice": 5.00,
+    "totalPrice": 115.00,
+    "user_id": "de81e039-eb07-45eb-b0ac-58022a963992",
+    "shipping_address": "your_shipping_address_value",
+    "first_name": "your_first_name_value",
+    "last_name": "your_last_name_value",
+    "phone_number": "your_phone_number_value",
+    "email_address": "your_email_address_value",
+    "payment_method": "your_payment_method_value",
+    "payment_result_id": "your_payment_result_id_value",
+    "payment_result_status": "your_payment_result_status_value",
+    "payment_result_update_time": "your_payment_result_update_time_value",
+    "payment_result_email_address": "your_payment_result_email_address_value",
+    "tax_price": 10.00,  
+    "total_price": 100.00,  
+    "is_paid": 1, 
+    "paid_at": "2023-11-27T12:00:00" 
+
+
+}
+
+###
+GET http://localhost:5000/order/myorders/4bba2c63-9b72-4603-b0bf-7938f0c572c9 
+Content-Type: application/json
+token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNGJiYTJjNjMtOWI3Mi00NjAzLWIwYmYtNzkzOGYwYzU3MmM5IiwibmFtZSI6Ik1lcmN5IFdhbWJ1aSIsImVtYWlsIjoia2FiYnpkakBnbWFpbC5jb20iLCJyb2xlIjowLCJ3ZWxjb21lZCI6MSwiYWN0aXZlIjoxLCJpYXQiOjE3MDEzNDI1MzF9.AinkiCNUXdSjjoDcDOqD6SngQQ8ejApslcyq0Ikbz_I
+
+{
+    "user_id":"4bba2c63-9b72-4603-b0bf-7938f0c572c9"
+}
+
