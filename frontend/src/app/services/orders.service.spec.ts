@@ -1,28 +1,25 @@
 import { TestBed } from '@angular/core/testing';
-
 import { OrdersService } from './orders.service';
-import {HttpClientTestingModule, HttpTestingController} from '@angular/common/http/testing'
+import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 
 describe('OrdersService', () => {
   let service: OrdersService;
-  let httpMock : HttpTestingController
+  let httpMock: HttpTestingController;
 
   beforeEach(() => {
-   TestBed.configureTestingModule({
-     imports: [HttpClientTestingModule],
-     providers: [OrdersService]
-   });
-   service = TestBed.inject(OrdersService);
-   httpMock = TestBed.inject(HttpTestingController)
- });
-
-
-  beforeEach(() => {
-    TestBed.configureTestingModule({});
+    TestBed.configureTestingModule({
+      imports: [HttpClientTestingModule],
+      providers: [OrdersService]
+    });
     service = TestBed.inject(OrdersService);
+    httpMock = TestBed.inject(HttpTestingController);
   });
 
-  it('should be created', () => {
+  afterEach(() => {
+    httpMock.verify();
+  });
+
+  it('should create an order', () => {
     let mockOrder =
     {
       product_id: "de9cbef3-5b0f-4a75-a128-b82b786b8119",
@@ -47,60 +44,52 @@ describe('OrdersService', () => {
       is_paid: 1,
       paid_at: "2023-11-27T12:00:00"
     }
-    
 
-  service.addOrderItems(mockOrder).subscribe(res=>{
-    expect(res).toEqual({"message": "Order registered successfully"})
-  })
-
-  const req = httpMock.expectOne('http://localhost:5000/order');
-  expect(req.request.method).toEqual('POST')
-  expect(req.request.body).toBe(mockOrder)
-
-  req.flush({"message": "Order registered successfully"})
-  });
-
-  it('should be get all orders', () => {
- 
-    service.getOrders().subscribe(res=>{
-      expect(res).toEqual({"message": "Category gotten all"})
-    })
-  
-    const req = httpMock.expectOne('http://localhost:5000/category');
-    expect(req.request.method).toEqual('GET')
-  
-  
-    req.flush({"message": "got all"})
+    service.addOrderItems(mockOrder).subscribe(res => {
+      expect(res).toEqual({ 'message': 'Order registered successfully' });
     });
 
+    const req = httpMock.expectOne('http://localhost:5000/order');
+    expect(req.request.method).toEqual('POST');
+    expect(req.request.body).toBe(mockOrder);
 
+    req.flush({ 'message': 'Order registered successfully' });
+  });
 
-      it('should be get my orders', () => {
-      
-        let user_id = "sadasdasdasd"
-        service.getMyOrders(user_id).subscribe(res=>{
-          expect(res).toEqual({"message": "Category gotten all"})
-        })
-      
-        const req = httpMock.expectOne(`http://localhost:5000/order/myorders/${user_id}`);
-        expect(req.request.method).toEqual('GET')
-      
-      
-        req.flush({"message": "all "})
-        });
+  it('should get all orders', () => {
+    service.getOrders().subscribe(res => {
+      expect(res).toEqual({ 'message': 'got all' });
+    });
 
-              it('should be get order by id', () => {
-      
-        let order_id = "sadasdasdasd"
-        service.getOrderById(order_id).subscribe(res=>{
-          expect(res).toEqual({"message": "Category gotten all"})
-        })
-      
-        const req = httpMock.expectOne(`http://localhost:5000/order/${order_id}`);
-        expect(req.request.method).toEqual('GET')
-      
-      
-        req.flush({"message": "all "})
-        });
+    const req = httpMock.expectOne('http://localhost:5000/order');
+    expect(req.request.method).toEqual('GET');
 
+    req.flush({ 'message': 'got all' });
+  });
+
+  it('should get my orders', () => {
+    let user_id = 'sadasdasdasd';
+
+    service.getMyOrders(user_id).subscribe(res => {
+      expect(res).toEqual({ 'message': 'all' });
+    });
+
+    const req = httpMock.expectOne(`http://localhost:5000/order/myorders/${user_id}`);
+    expect(req.request.method).toEqual('GET');
+
+    req.flush({ 'message': 'all' });
+  });
+
+  it('should get order by id', () => {
+    let order_id = 'sadasdasdasd';
+
+    service.getOrderById(order_id).subscribe(res => {
+      expect(res).toEqual({ 'message': 'all' });
+    });
+
+    const req = httpMock.expectOne(`http://localhost:5000/order/${order_id}`);
+    expect(req.request.method).toEqual('GET');
+
+    req.flush({ 'message': 'all' });
+  });
 });
